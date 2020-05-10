@@ -41,6 +41,7 @@ class FurnitureList extends React.Component {
     data: [],
     count: 0,
     totalPrice: 0,
+    budget: 'base'
   };
 
 
@@ -118,6 +119,9 @@ class FurnitureList extends React.Component {
     }
   }
 
+  getMessage = (message) => {
+    return <Tag color="#f50">Message: {message}</Tag>
+  }
 
   render() {
 
@@ -179,6 +183,7 @@ class FurnitureList extends React.Component {
                 <br />
                 <p>
                   {this.getTextileColor(item.textileColor)} {this.getTone(item.tone)}
+                  {item.message && this.getMessage(item.message)}
                 </p>
               </Card>
             </List.Item>
