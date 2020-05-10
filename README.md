@@ -1,5 +1,5 @@
 
-## Selection Algorithm
+## Selection Algorithms
 
 ### `Base budge package selection`
 
