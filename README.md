@@ -20,7 +20,7 @@ Phase 2
 
 
 Phase 3
-Switch to the cheapest side chair if it is the same color as the Sofa
+1) Switch to the cheapest side chair if it is the same color as the Sofa
 ```
 
 
