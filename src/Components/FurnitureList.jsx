@@ -1,6 +1,8 @@
 import React from 'react';
-import { filterLivingRooms } from '../api.js'
+import { filterLivingRooms } from '../services/api.js'
 import { capitalize, isEmpty } from 'lodash'
+import { ExclamationCircleOutlined } from '@ant-design/icons'
+
 import {
   Form,
   Radio,
@@ -16,7 +18,9 @@ import {
   Tag,
   Space,
   Spin,
-  Divider
+  Divider,
+  Tooltip,
+
 } from 'antd'
 
 import 'antd/dist/antd.css';
@@ -29,7 +33,7 @@ const { Title, Text } = Typography;
 
 
 const DEFAULT_FILTERS = {
-  budget: 'base',
+  budget: 'premium',
   tone: 'light',
   textileColor: 'grey',
 }
@@ -40,8 +44,7 @@ class FurnitureList extends React.Component {
     isLoading: false,
     data: [],
     count: 0,
-    totalPrice: 0,
-    budget: 'base'
+    totalPrice: 0
   };
 
 
@@ -120,7 +123,10 @@ class FurnitureList extends React.Component {
   }
 
   getMessage = (message) => {
-    return <Tag color="#f50">Message: {message}</Tag>
+    return <Tooltip title={message} placement="right">
+      <ExclamationCircleOutlined style={{ fontSize: '24px', color: 'orange' }} />
+    </Tooltip>
+
   }
 
   render() {
@@ -170,7 +176,7 @@ class FurnitureList extends React.Component {
           dataSource={this.state.data}
           renderItem={item => (
             <List.Item>
-              <Card title={`${item.itemName} $${item.price}/month`}>
+              <Card title={item.itemName}>
                 <img
                   width="100%"
                   alt="example"
@@ -178,16 +184,23 @@ class FurnitureList extends React.Component {
                 />
                 <br />
                 <br />
-                <Meta title={this.getTitle(item.type)}
+                <Meta
+                  avatar={
+                    item.message && this.getMessage(item.message)
+                  }
+                  title={`${this.getTitle(item.type)}`}
                 />
                 <br />
                 <p>
+                  <Text strong>${item.price}/month</Text>
+                  <br />
                   {this.getTextileColor(item.textileColor)} {this.getTone(item.tone)}
-                  {item.message && this.getMessage(item.message)}
+
                 </p>
               </Card>
             </List.Item>
-          )}
+          )
+          }
         />}
       </>
 

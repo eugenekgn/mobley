@@ -1,3 +1,16 @@
 // color cordinated tags
 
 // dark and grey sofas does not exist 
+
+
+selection alg 
+Base Budget
+
+Phase 1
+step 1) Cheapest Sofa is picked based on tone and color combination
+step 2) Cheapest Side Chair is picked based on tone and color combination
+step 3) Cheapest Coffee Table is picked based on tone 
+step 4) Cheapest End Table is picked based on tone 
+step 5) Cheapest Floor Lamp is picked based on tone
+
+Premium Budget
