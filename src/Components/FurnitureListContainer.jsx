@@ -1,24 +1,8 @@
 import React from 'react';
 import FurnitureList from './FurnitureList'
 
-import { capitalize, isEmpty } from 'lodash'
 import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-  Typography,
-  List,
-  Card,
-  Layout, Menu, Breadcrumb, Row, Col,
-  Avatar,
-  Tag,
+  Layout,
 } from 'antd'
 
 import 'antd/dist/antd.css';
@@ -27,13 +11,9 @@ import '../styles/css.css';
 const { Header, Content, Footer } = Layout;
 
 
-
 class FurnitureListContainer extends React.Component {
 
   render() {
-
-
-
     return (
       <Layout className="layout" style={{ height: '100vh' }}>
         <Header className="header">

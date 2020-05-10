@@ -1,6 +1,6 @@
 import React from 'react';
 import { filterLivingRooms } from '../services/api.js'
-import { capitalize, isEmpty } from 'lodash'
+import { capitalize } from 'lodash'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 
 import {
@@ -9,16 +9,8 @@ import {
   Typography,
   List,
   Card,
-  Layout,
-  Menu,
-  Breadcrumb,
-  Row,
-  Col,
-  Avatar,
   Tag,
-  Space,
   Spin,
-  Divider,
   Tooltip,
 
 } from 'antd'
@@ -33,12 +25,13 @@ const { Title, Text } = Typography;
 
 
 const DEFAULT_FILTERS = {
-  budget: 'premium',
+  budget: 'base',
   tone: 'light',
   textileColor: 'grey',
 }
 
 class FurnitureList extends React.Component {
+
   state = {
     ...DEFAULT_FILTERS,
     isLoading: false,
@@ -46,7 +39,6 @@ class FurnitureList extends React.Component {
     count: 0,
     totalPrice: 0
   };
-
 
 
   async componentDidMount() {
@@ -137,7 +129,6 @@ class FurnitureList extends React.Component {
       <>
         <Title level={2}>Filters</Title>
         <Form
-          layout={'inline'}
           layout="inline"
           size={'small'}
         >

@@ -1,4 +1,4 @@
-import { isEmpty, get, first, last } from 'lodash'
+import { first } from 'lodash'
 
 export const pickBaseSofa = (furniture, filters) => {
     const sofas = furniture
@@ -77,3 +77,25 @@ export const pickBaseSideChairFiller = (furniture, filters) => {
 
     return sideChairs[Math.floor(Math.random() * sideChairs.length)];
 };
+
+export const buildBaseEnsureSelections = (livingRoom, filters, data) => {
+    const modifiedLivingroom = {}
+    for (const item in livingRoom) {
+
+        const value = livingRoom[item]
+        if (value.message) {
+            switch (item) {
+                case 'sofa':
+                    modifiedLivingroom[item] = { ...value, ...pickBaseSofaFiller(data, filters), }
+                    break
+                case 'sideChair':
+                    modifiedLivingroom[item] = { ...value, ...pickBaseSideChairFiller(data, filters) }
+                    break
+                default:
+                    break
+            }
+        }
+    }
+
+    return { ...livingRoom, ...modifiedLivingroom }
+}
