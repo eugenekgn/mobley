@@ -36,6 +36,7 @@ const pickDiffColorChair = (furniture, filters, sofaColor) => {
     )
     .sort((a, b) => a.price - b.price);
 
+  console.log(sideChairs)
   return filters.budget === BUDGET.base ? first(sideChairs) : last(sideChairs);
 };
 
@@ -117,7 +118,6 @@ const buildLivingroom = (furniture, filters) => {
 };
 
 export const filterLivingRooms = async (filters) => {
-
   const filetedResults = buildLivingroom(DATA, filters)
   const items = Object.values(filetedResults)
 

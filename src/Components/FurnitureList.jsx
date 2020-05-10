@@ -56,12 +56,14 @@ class FurnitureList extends React.Component {
 
     const { budget, tone, textileColor } = this.state
 
+    const filters = { budget, tone, textileColor, [e.target.name]: e.target.value }
     this.setState({
       [e.target.name]: e.target.value,
       isLoading: true,
     });
 
-    const furniture = await filterLivingRooms({ budget, tone, textileColor, [e.target.name]: e.target.value })
+    const furniture = await filterLivingRooms(filters)
+
     this.setState({
       isLoading: false,
       data: furniture.data,
@@ -132,7 +134,7 @@ class FurnitureList extends React.Component {
           layout="inline"
           size={'small'}
         >
-          <Form.Item label="Budget" name="size">
+          <Form.Item label="Budget" name="budget">
             <Radio.Group name="budget" defaultValue={budget} onChange={this.onChange}>
               <Radio.Button value="base">$90-$115</Radio.Button>
               <Radio.Button value="premium">$115+ </Radio.Button>
