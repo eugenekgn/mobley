@@ -15,7 +15,7 @@ class FurnitureListContainer extends React.Component {
 
   render() {
     return (
-      <Layout className="layout" style={{ height: '100vh' }}>
+      <Layout className="layout" style={{ height: '100%' }}>
         <Header className="header">
           <div>
             <img className=""
